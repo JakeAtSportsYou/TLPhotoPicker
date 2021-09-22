@@ -47,6 +47,9 @@ extension PopupViewProtocol where Self: UIView {
                 if show {
                     self.popupView.transform = CGAffineTransform(scaleX: 1, y: 1)
                     self.popupView.frame = self.originalFrame
+                    if let tableView = (self as? TLAlbumPopView)?.tableView {
+                        tableView.allowsSelection = true
+                    }
                 }
                 self.show = show
             }
